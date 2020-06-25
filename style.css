@@ -1,0 +1,12 @@
+
+body{
+    position: relative;
+    top:200px;
+    text-align: center;
+    background-color: darkslateblue;
+}
+
+.titlemain{
+    text-shadow: 2px 2px whitesmoke;
+font-family: Blippo, fantasy;
+}
