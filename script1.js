@@ -1,8 +1,10 @@
+var lv = 1;
+var sc=0;
 //heading
 var firstlevel=document.createElement('h2')
 var firstc=document.createElement('center')
 firstc.setAttribute('class','levelheader')
-firstc.innerHTML ='Level 1'
+firstc.innerHTML ='Level '+lv
 document.body.append(firstlevel)
 firstlevel.appendChild(firstc)
 //music button
@@ -27,7 +29,15 @@ show.setAttribute('id','btnLetsGo')
 show.setAttribute('class','button2show')
 show.setAttribute('value','lets go')
 document.body.append(show)
-show.setAttribute('onclick','lv1()')
+show.setAttribute('onclick','stages(lv)')
+//show.setAttribute('onclick','level(levelOneClsColors)')
+
+var label1 = document.createElement('label')
+label1.setAttribute('type','text')
+label1.setAttribute('id','scores')
+label1.setAttribute('class','label1')
+label1.innerHTML = "your score is :" +sc
+document.body.append(label1)
 //music source html
 var music = document.createElement('audio')
 music.setAttribute('src','bgmusic1.mp3')
@@ -145,6 +155,15 @@ button6.setAttribute('onclick','SetColor(6)')
 row2.appendChild(p1)
 p1.appendChild(button6)
 
+var button7=document.createElement('input')
+button7.setAttribute('id','btn7')
+button7.setAttribute('type','submit')
+button7.setAttribute('value','')
+button7.setAttribute('class','button7')
+button7.setAttribute('onclick','SetColor(7)')
+row2.appendChild(p1)
+p1.appendChild(button7)
+
 //evaluvate
 var division = document.createElement('div')
 division.setAttribute('class','chck1')
@@ -154,27 +173,36 @@ check.setAttribute('id','chck')
 check.setAttribute('value','Check')
 document.body.append(division)
 division.appendChild(check)
-check.setAttribute('onclick','checkResult()')
+check.setAttribute('onclick','resultswitch(lv)')
+//check.setAttribute('onclick','checkResult(levelOneClsColors)')
 
 var c = 0;
 var t;
 var timer_is_on = 0;
 var chooseColorLimit=0;
-var retryLimit=2;
+var retryLimit=3;
 
-var levelTwoColors=["green","pink","blue","red"];
+
 var levelOneClsColors=["crlbtn1","crlbtn3","crlbtn5","crlbtn6"];
+var levelTwoClsColors=["crlbtn4","crlbtn2","crlbtn1","crlbtn2"];
+var levelThreeClsColors=["crlbtn5","crlbtn1","crlbtn3","crlbtn4"];
+var levelFourClsColors=["crlbtn2","crlbtn1","crlbtn6","crlbtn3"];
+var levelFiveClsColors=["crlbtn7","crlbtn6","crlbtn5","crlbtn4"];
+var levelSixClsColors=["crlbtn5","crlbtn1","crlbtn2","crlbtn5"];
+var levelSevenClsColors=["crlbtn1","crlbtn3","crlbtn4","crlbtn5"];
+var levelEightClsColors=["crlbtn2","crlbtn7","crlbtn4","crlbtn2"];
+var levelNineClsColors=["crlbtn7","crlbtn7","crlbtn6","crlbtn1"];
+var levelTenClsColors=["crlbtn6","crlbtn2","crlbtn1","crlbtn3"];
+
+
 
 function timedCount() {
     
-    document.getElementById("crl1").setAttribute('class','crlbtn1');
-    document.getElementById("crl2").setAttribute('class','crlbtn3');
-    document.getElementById("crl3").setAttribute('class','crlbtn5');
-    document.getElementById("crl4").setAttribute('class','crlbtn6');
+   
     c = c + 1;
     t = setTimeout(timedCount, 1000);
     
-    if(c==7)
+    if(c==5)
         stopCount();
   }
 
@@ -187,6 +215,7 @@ function startCount() {
 }
 
 function stopCount() {
+    console.log("hi")
   clearTimeout(t);
   document.getElementById("crl1").setAttribute('class','crlClear');
   document.getElementById("crl2").setAttribute('class','crlClear');
@@ -197,12 +226,79 @@ function stopCount() {
   
 }
 
-function lv1()
+function next()
 {
     document.getElementById("btnLetsGo").disabled = true;
     chooseColorLimit=0;
     startCount();
     
+}
+function level(arraycolour)
+{
+    console.log(arraycolour[0])
+    document.getElementById("crl1").className =arraycolour[0];
+    document.getElementById("crl2").className =arraycolour[1];
+    document.getElementById("crl3").className =arraycolour[2];
+    document.getElementById("crl4").className =arraycolour[3];
+    next();
+
+}
+function stages(val)
+{
+    switch (val) {
+        case 1:level(levelOneClsColors)
+        break;
+        case 2:level(levelTwoClsColors)
+        break;
+        case 3:level(levelThreeClsColors)
+        break;
+        case 4:level(levelFourClsColors)
+        break;
+        case 5:level(levelFiveClsColors)
+        break;
+        case 6:level(levelSixClsColors)
+        break;
+        case 7:level(levelSevenClsColors)
+        break;
+        case 8:level(levelEightClsColors)
+        break;
+        case 9:level(levelNineClsColors)
+        break;
+        case 10:level(levelTenClsColors)
+        break;
+    
+        default:
+            break;
+    }
+}
+
+function resultswitch(val2)
+{
+    switch (val2) {
+        case 1:checkResult(levelOneClsColors)
+        break;
+        case 2:checkResult(levelTwoClsColors)
+        break;
+        case 3:checkResult(levelThreeClsColors)
+        break;
+        case 4:checkResult(levelFourClsColors)
+        break;
+        case 5:checkResult(levelFiveClsColors)
+        break;
+        case 6:checkResult(levelSixClsColors)
+        break;
+        case 7:checkResult(levelSevenClsColors)
+        break;
+        case 8:checkResult(levelEightClsColors)
+        break;
+        case 9:checkResult(levelNineClsColors)
+        break;
+        case 10:checkResult(levelTenClsColors)
+        break;
+    
+        default:
+            break;
+    }
 }
 
 function SetColor(btnCtrl)
@@ -241,26 +337,44 @@ function SetColor(btnCtrl)
     
 }
 
-function checkResult()
+function checkResult(checkarray)
 {
 
 
 
-    if( document.getElementById("crl1").className == levelOneClsColors[0] &&
-    document.getElementById("crl2").className == levelOneClsColors[1] &&
-    document.getElementById("crl3").className == levelOneClsColors[2] &&
-    document.getElementById("crl4").className == levelOneClsColors[3] )
+    if( document.getElementById("crl1").className == checkarray[0] &&
+    document.getElementById("crl2").className == checkarray[1] &&
+    document.getElementById("crl3").className == checkarray[2] &&
+    document.getElementById("crl4").className == checkarray[3] )
     {
         //Success
         //set text in label
-        alert(" Successfully completed Level 1 !!")
-
+        if(lv<11)
+        {
+        lv=lv+1
+        alert(" Successfully completed this Level,Be ready for level "+ lv)
+        firstc.innerHTML ='Level '+lv
+        sc=sc+10
+        label1.innerHTML = "your score is : "+sc
+        document.getElementById("btnLetsGo").disabled = false;
+        document.getElementById("crl1").setAttribute('class','crlClear');
+        document.getElementById("crl2").setAttribute('class','crlClear');
+        document.getElementById("crl3").setAttribute('class','crlClear');
+        document.getElementById("crl4").setAttribute('class','crlClear');
+        }
+        else{
+        alert("YOU HAVE WON ALL TEN ROUNDS,YOUR SCORE IS "+sc)
+        }
     }
     else
     {
         //Failure & retry logic
         if(retryLimit != 0)
         {
+            document.getElementById("crl1").setAttribute('class','crlClear');
+  document.getElementById("crl2").setAttribute('class','crlClear');
+  document.getElementById("crl3").setAttribute('class','crlClear');
+  document.getElementById("crl4").setAttribute('class','crlClear');
             retryLimit--;
             //set text in label to retry
             lives.pop()
@@ -273,7 +387,7 @@ function checkResult()
             //Game over
             //Set final message in label
             location3()
-            alert(" Sorry !! You have lost this level. Better luck next time !!");
+            alert(" Sorry !! You have lost. Better luck next time !!");
             
         }
 

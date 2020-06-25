@@ -18,6 +18,9 @@ text-align: center;
     font-size: 5mm;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.label1{
+  color: antiquewhite;
+}
 
 .dot {
     height: 50px;
@@ -107,13 +110,26 @@ text-align: center;
   .button6 {
     height: 50px;
     width: 50px;
-    background-color: black;
+    background-color:orange;
     display: inline-block;
   }
   .crlbtn6 {
     height: 50px;
     width: 50px;
-    background-color: black;
+    background-color:orange;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .button7 {
+    height: 50px;
+    width: 50px;
+    background-color:brown;
+    display: inline-block;
+  }
+  .crlbtn7 {
+    height: 50px;
+    width: 50px;
+    background-color:brown;
     border-radius: 50%;
     display: inline-block;
   }
