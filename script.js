@@ -26,10 +26,13 @@ var fourth1 = document.createElement('li')
 fourth1.innerHTML='You can enter colors only in linear sequence'
 var fifth1 = document.createElement('li')
 fifth1.innerHTML='Show time reduces as you go uplevels'
+var sixth1 = document.createElement('li')
+sixth1.innerHTML='"lets go" button can be used only once per level'
 
 document.body.append(list2)
 list2.appendChild(first1)
 list2.appendChild(second1)
+list2.appendChild(sixth1)
 list2.appendChild(third1)
 list2.appendChild(fifth1)
 list2.appendChild(fourth1)
