@@ -3,22 +3,38 @@
     font-family: "Comic Sans MS", cursive, sans-serif;
     
 }
+input{
+  background-color: cornflowerblue;
+ 
+  color: antiquewhite;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
 
 body{
-    background-color: darkslateblue;
+  
+    background-color: rgb(64, 58, 102);
     
 }
 .chck1{
 text-align: center;
 }
+.button2show{
+  position: relative;
+  left:20px;
+}
+
 .ht{
     position: relative;
     float: right;
     color: red;
     font-size: 5mm;
+    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .label1{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  position: relative;
+  left:30px;
   color: antiquewhite;
 }
 

@@ -3,10 +3,13 @@ body{
     position: relative;
     top:150px;
     text-align: center;
-    background-color: darkslateblue;
+    background-color:slateblue;
+    background-image: url("bg.png");
+    
 }
 
 .titlemain{
-    text-shadow: 2px 2px whitesmoke;
+    color: snow;
+    text-shadow: 2px 2px black;
 font-family: Blippo, fantasy;
 }
